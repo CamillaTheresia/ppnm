@@ -36,15 +36,15 @@ y = 1+x \cdot (1+x/2 \cdot (1+x/3 \cdot (1+x/4 \cdot (1+x/5 \cdot (1+x/6 \cdot(1
 \end{equation}
 
 It should be noted that equation \ref{eq:expand} is only an approximation to equation \ref{eq:e}. To reduce errors
-and to have a precision of $\epsilon = 10^{-15}$, to things are done.
+and to have a precision of $\epsilon = 10^{-15}$, two things are done.
 
-If $x<0$, the expression to calculate becomes $e^x = \frac{1}{e^{-x}} = \frac{1}{y(-x)}$, where y is the expression from equation
-\ref{eq:expand}. This is done to avoid a negative argument in equation \ref{eq:expand}.
+If $x<0$, the expression to calculate becomes $e^x = \frac{1}{e^{-x}} = \frac{1}{y(-x)}$, where y is the expression
+ from equation \ref{eq:expand}. This is done to avoid a negative argument in equation \ref{eq:expand}.
 
 If $x>1./8$, the expression to calculate becomes $e^x = (e^{x/2})^2 = (y(x/2))^2$, where y is the expression from 
-equation \ref{eq:expand}.. This is done to make it possible to have a precision of $\epsilon = 10^{-15}$. If x
+equation \ref{eq:expand}. This is done to make it possible to have a precision of $\epsilon = 10^{-15}$. If x
  becomes larger than $1./8$, the precision becomes less than $10^{-15}$. To take this into account, we divide by 2
-until x becomes equal or smaller than $1./8$, take the exponential of the that, and then take the result to the
+until x becomes equal to or smaller than $1./8$, take the exponential of that argument, and then take the result to the
 power of 2 * times we have divided by 2.
 
 \section{Test of the implemented exponential function in the C-language}
