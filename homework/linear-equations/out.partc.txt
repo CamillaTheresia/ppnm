@@ -1,0 +1,3 @@
+My implementation is about 0.05s faster than gsl_linalg_QR_decomp.
+My computer is fast, and I have the same runtime for N=5 and N=100000. So it is hard to convince myself that
+the computation time goes as O(N^3).
