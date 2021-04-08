@@ -56,7 +56,7 @@ double qspline_diff_eval(qspline *s,double z){
 		if(z>s->x[mid]) i=mid; else j=mid;
 		}
 	double h=z-s->x[i];
-	return h*s->b[i]+2*h*s->c[i];
+	return s->b[i]+2*h*s->c[i];
 }
 
 void qspline_free(qspline *s){
@@ -66,54 +66,61 @@ void qspline_free(qspline *s){
 int main(){
 	int n=5;
 	double x[n],y1[n],y2[n],y3[n],y1_diff[n],y2_diff[n],y3_diff[n],y1_integ[n],y2_integ[n],y3_integ[n];
-	printf("x: y1: y2: y3:\n");
+	printf("# index 0: x, y1, y2, y3\n");
 	for(int i=0;i<n;i++){
 		x[i]=i+1;
 		y1[i]=1;
 		y2[i]=i+1;
 		y3[i]=(i+1)*(i+1);
-		printf("%10g %10g %10g %10g\n\n",x[i],y1[i],y2[i],y3[i]);
+		printf("%10g %10g %10g %10g\n",x[i],y1[i],y2[i],y3[i]);
 	}
+	printf("\n\n");
 	qspline* s1=qspline_alloc(n,x,y1);
 	qspline* s2=qspline_alloc(n,x,y2);
 	qspline* s3=qspline_alloc(n,x,y3);
-	printf("z: qspline(y1): qspline(y2): qspline(y3):\n");
-	double zmin=2,zmax=4;
-	for(double z=zmin;z<=zmax;z+=1./2){
-		printf("%10g %10g %10g %10g\n\n",z,qspline_eval(s1,z),qspline_eval(s2,z),qspline_eval(s3,z));
+	printf("# index 1: z, qspline(y1), qspline(y2), qspline(y3)\n");
+	double zmin=2,zmax=4.5;
+	for(double z=zmin;z<=zmax;z+=1./8){
+		printf("%10g %10g %10g %10g\n",z,qspline_eval(s1,z),qspline_eval(s2,z),qspline_eval(s3,z));
 	}
-	printf("x: y1_diff: y2_diff: y3_diff:\n");
+	printf("\n\n");
+	printf("# index 2: x, y1_diff, y2_diff, y3_diff\n");
 	for(int i=0;i<n;i++){
 		x[i]=i+1;
 		y1_diff[i]=0;
 		y2_diff[i]=1;
 		y3_diff[i]=2*(i+1);
-		printf("%10g %10g %10g %10g\n\n",x[i],y1_diff[i],y2_diff[i],y3_diff[i]);
+		printf("%10g %10g %10g %10g\n",x[i],y1_diff[i],y2_diff[i],y3_diff[i]);
 	}
-	printf("z: qspline_diff(y1): qspline_diff(y2): qspline_diff(y3):\n");
-	for(double z=zmin;z<=zmax;z+=1./2){
-		printf("%10g %10g %10g %10g\n\n",z,qspline_diff_eval(s1,z),qspline_diff_eval(s2,z),qspline_diff_eval(s3,z));
+	printf("\n\n");
+	printf("# index 3: z, qspline_diff(y1), qspline_diff(y2), qspline_diff(y3)\n");
+	for(double z=zmin;z<=zmax;z+=1./8){
+		printf("%10g %10g %10g %10g\n",z,qspline_diff_eval(s1,z),qspline_diff_eval(s2,z),qspline_diff_eval(s3,z));
 	}
-	printf("x: integ(y1): integ(y2): integ(y3):\n");
+	printf("\n\n");
+	printf("# index 4: x, integ(y1), integ(y2), integ(y3)\n");
 	for(int i=0;i<n;i++){
 		x[i]=i+1;
 		y1_integ[i]=(i+1)-1;
 		y2_integ[i]=0.5*(i+1)*(i+1)-0.5;
 		y3_integ[i]=1./3*(i+1)*(i+1)*(i+1)-1./3;
-		printf("%10g %10g %10g %10g\n\n",x[i],y1_integ[i],y2_integ[i],y3_integ[i]);
+		printf("%10g %10g %10g %10g\n",x[i],y1_integ[i],y2_integ[i],y3_integ[i]);
 	}
-	printf("z: qspline_integ(y1): qspline_integ(y2): qspline_integ(y3):\n");
-	for(double z=zmin;z<=zmax;z+=1./2){
-		printf("%10g %10g %10g %10g\n\n",z,qspline_integ_eval(s1,z),qspline_integ_eval(s2,z),qspline_integ_eval(s3,z));
+	printf("\n\n");
+	printf("# index 5: z, qspline_integ(y1), qspline_integ(y2), qspline_integ(y3)\n");
+	for(double z=zmin;z<=zmax;z+=1./8){
+		printf("%10g %10g %10g %10g\n",z,qspline_integ_eval(s1,z),qspline_integ_eval(s2,z),qspline_integ_eval(s3,z));
 	}
-	printf("b1: b2: b3:\n");
+	printf("\n\n");
+	printf("# index 5: b1, b2, b3\n");
 	for(int i=0;i<n-1;i++){
-		printf("%10g %10g %10g\n\n",(double)s1->b[i],(double)s2->b[i],(double)s3->b[i]);
+		printf("%10g %10g %10g\n",(double)s1->b[i],(double)s2->b[i],(double)s3->b[i]);
 	}
 	printf("c1: c2: c3:\n");
 	for(int i=0;i<n-1;i++){
-		printf("%10g %10g %10g\n\n",(double)s1->c[i],(double)s2->c[i],(double)s3->c[i]);
+		printf("%10g %10g %10g\n",(double)s1->c[i],(double)s2->c[i],(double)s3->c[i]);
 	}
+	printf("\n\n");
 	qspline_free(s1);
 	qspline_free(s2);
 	qspline_free(s3);
