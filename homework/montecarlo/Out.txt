@@ -1,0 +1,15 @@
+integrating x*x+y*y<0.9*0.9?1:0 with N=10000
+pseudo-random:
+integral = 0.646000 error estimate = 0.004782
+exact    = 0.636173 actual error   = 0.009827
+quasi-random:
+integral = 0.635900 error estimate = 0.000700
+exact    = 0.636173 actual error   = 0.000273
+integrating 1/pow(M_PI,3)*1/(1-cos(x)*cos(y)*cos(z))dxdydz from 0 to pi with N=1000000
+pseudo-random:
+integral = 1.380942 error estimate = 0.004777
+exact    = 1.393204 actual error   = 0.012262
+integrating sin(x)*sin(x)*sin(x)/(sin(x)*sin(x)*sin(x)+cos(x)*cos(x)*cos(x)) from 0 to pi/2 with N=10000
+pseudo-random:
+integral = 0.785784 error estimate = 0.006220
+exact    = 0.785398 actual error   = 0.000386

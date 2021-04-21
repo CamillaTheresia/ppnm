@@ -1,0 +1,6 @@
+strata integration f(x,y)=x*x+y*y<R*R?1:0, R=0.8
+a = {0,0} b = {1,1}
+acc = 0.001 eps = 0
+
+integ = 0.502849 error-estimate = 0.001
+exact = 0.502655 actual-error   = 0.000193981
