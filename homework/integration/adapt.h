@@ -8,7 +8,4 @@ double adapt (
 	double f(double),double a,double b,
 	double acc,double eps
 	);
-double clenshaw_curtis(
-	double f(double),double a,double b,double acc,double eps
-	);
 #endif

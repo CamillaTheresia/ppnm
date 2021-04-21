@@ -31,8 +31,3 @@ double adapt
 	return adapt24(f,a,b,acc,eps,f2,f3,nrec);
 }
 
-// gcc nested function
-double clenshaw_curtis(double f(double),double a,double b,double acc,double eps){
-	double g(double t){return f( (a+b)/2+(a-b)/2*cos(t) )*sin(t)*(b-a)/2;}
-	return adapt(g,0,M_PI,2*acc,2*eps);
-}
