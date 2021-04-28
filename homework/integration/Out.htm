@@ -4,15 +4,60 @@ Integration of 1/sqrt(x) from 0 to 1 : OPEN4
           calls = 4292
 estimated error = 0.00299952
    actual error = 0.000483882
+
+Integration of 1/sqrt(x) from 0 to 1 : CLENSHAW_CURTIS
+              Q = 1.99987
+          exact = 2
+          calls = 8
+estimated error = 0.00299987
+   actual error = 0.000129682
+
+Integration of 1/sqrt(x) from 0 to 1 : GSL
+              Q = 2
+          exact = 2
+          calls = 231
+estimated error = 5.77316e-15
+   actual error = -1.55431e-15
+
 Integration of log(x)/sqrt(x) from 0 to 1 : OPEN4
               Q = -3.99979
           exact = -4
           calls = 8572
 estimated error = 0.00499979
    actual error = 0.000209915
+
+Integration of log(x)/sqrt(x) from 0 to 1 : CLENSHAW_CURTIS
+              Q = -3.99486
+          exact = -4
+          calls = 36
+estimated error = 0.00499486
+   actual error = 0.00514201
+
+Integration of log(x)/sqrt(x) from 0 to 1 : GSL
+              Q = -4
+          exact = -4
+          calls = 315
+estimated error = 1.35447e-13
+   actual error = -8.52651e-14
+
 Integration of 4*sqrt(1-x*x)/M_PI from 0 to 1 : OPEN4
               Q =    1.00000000000087307939
           exact =    1.00000000000000000000
           calls = 4636
 estimated error = 2e-09
    actual error = 8.73079e-13
+
+Integration of 4*sqrt(1-x*x)/M_PI from 0 to 1 : CLENSHAW_CURTIS
+              Q =    0.99999999999998023803
+          exact =    1.00000000000000000000
+          calls = 3756
+estimated error = 2e-09
+   actual error = 1.9762e-14
+
+Integration of 4*sqrt(1-x*x)/M_PI from 0 to 1 : GSL
+              Q = 1
+          exact = 1
+          calls = 231
+estimated error = 1.12475e-10
+   actual error = 4.44089e-16
+

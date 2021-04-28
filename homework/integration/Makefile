@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -std=gnu11
-LDLIBS = -lm
+CFLAGS = -Wall -std=gnu11 $$(gsl-config --cflags)
+LDLIBS = -lm $$(gsl-config --libs)
 
 all:Out.htm
 	cat $<
