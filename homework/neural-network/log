@@ -1,0 +1,2 @@
+qnewton:converged: fx<acc=0.001
+qnewton: nsteps=86 ngood=81 nbad=4 fx=8.9e-04
