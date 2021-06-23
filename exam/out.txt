@@ -1,0 +1,63 @@
+A is a symmetric positive-definite matrix:
+index(0,0) = 2.1122
+index(0,1) = 1.71976
+index(0,2) = 1.32782
+index(0,3) = 1.98618
+
+index(1,0) = 1.71976
+index(1,1) = 1.57268
+index(1,2) = 1.00582
+index(1,3) = 1.45704
+
+index(2,0) = 1.32782
+index(2,1) = 1.00582
+index(2,2) = 1.00743
+index(2,3) = 1.4165
+
+index(3,0) = 1.98618
+index(3,1) = 1.45704
+index(3,2) = 1.4165
+index(3,3) = 2.1428
+
+L is a lower triangular matrix:
+index(0,0) = 1.45334
+index(0,1) = 0
+index(0,2) = 0
+index(0,3) = 0
+
+index(1,0) = 1.18332
+index(1,1) = 0.41526
+index(1,2) = 0
+index(1,3) = 0
+
+index(2,0) = 0.913635
+index(2,1) = -0.181325
+index(2,2) = 0.373926
+index(2,3) = 0
+
+index(3,0) = 1.36663
+index(3,1) = -0.38559
+index(3,2) = 0.262027
+index(3,3) = 0.240391
+
+LL^T calculated to check that A=LL^T:
+index(0,0) = 2.1122
+index(0,1) = 1.71976
+index(0,2) = 1.32782
+index(0,3) = 1.98618
+
+index(1,0) = 1.71976
+index(1,1) = 1.57268
+index(1,2) = 1.00582
+index(1,3) = 1.45704
+
+index(2,0) = 1.32782
+index(2,1) = 1.00582
+index(2,2) = 1.00743
+index(2,3) = 1.4165
+
+index(3,0) = 1.98618
+index(3,1) = 1.45704
+index(3,2) = 1.4165
+index(3,3) = 2.1428
+
