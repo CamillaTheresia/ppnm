@@ -7,6 +7,10 @@
 int newton (
 	void f(gsl_vector* x,gsl_vector* fx),
 	gsl_vector* x, double eps);
+void rkstep12(
+	void f(double x, gsl_vector* yx, gsl_vector* dydx),
+	double x, gsl_vector* yx, double h, gsl_vector* yh, gsl_vector* err,gsl_vector* k0, gsl_vector* k1
+);
 
 void vector_print(char* s,gsl_vector* v){
 	printf("%s",s);
@@ -44,12 +48,12 @@ int main() {
 	vector_print("            f(x): ",fxt);
 	ncalls=0;
 	int stepst=newton(ft,xt,1e-3);
-	printf("steps = %i, ncalls = %i\n",stepst,ncalls);
+	printf("steps = %i,	ncalls = %i\n",stepst,ncalls);
 	vector_print("      solution x: ",xt);
 	ft(xt,fxt);
 	vector_print("            f(x): ",fxt);
 	printf("Minimum of 3*x^2+2x*+1 should be:\n");
-	printf(" x=-0.3333\n");
+	printf("x=-0.3333\n");
 
 	printf("Extremum of the Rosenbrock's function:\n");
 	vector_print("initial vector x: ",x);
@@ -57,12 +61,12 @@ int main() {
 	vector_print("            f(x): ",fx);
 	ncalls=0;
 	int steps=newton(f,x,1e-3);
-	printf("steps = %i, ncalls = %i\n",steps,ncalls);
+	printf("steps = %i,	ncalls = %i\n",steps,ncalls);
 	vector_print("      solution x: ",x);
 	f(x,fx);
 	vector_print("            f(x): ",fx);
 	printf("Minimum of Rosenbrock's function should be:\n");
-	printf(" x=1 y=1\n");
+	printf("x=1	y=1\n");
 
 return 0;
 }

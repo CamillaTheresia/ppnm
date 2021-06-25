@@ -1,0 +1,30 @@
+\
+set term png; \
+set out "out.plots.png"; \
+set multiplot; \
+set title "Hydrogen s-wave shooting to $F_{\epsilon}(r_\mathrm{max})=0$"; \
+set tics out; \
+set xtics 2; \
+set mxtics 1; \
+set width 5; \
+set xlabel "$r$ [$a_\mathrm{Bohr}$]"; \
+set ylabel "$F_\epsilon(r)$"; \
+plot [][0:]\
+ "out.data" index 1 with lines title "$r_\mathrm{max}$=2" \
+,"out.data" index 3 with lines title "$r_\mathrm{max}$=3" \
+,"out.data" index 5 with lines title "$r_\mathrm{max}$=4" \
+,"out.data" index 9 with lines title "$r_\mathrm{max}$=10" \
+,"out.data" index 9 using 1:3 with lines linetype 2 title "exact"; \
+set origin 0,-5-1; \
+set mytics 0.05; \
+set title "Obtained energy as function of $r_\mathrm{max}$"; \
+set xlabel "$r_\mathrm{max}$ [$a_\mathrm{Bohr}$]"; \
+set ylabel "$\epsilon$ [Hatree]"; \
+plot [2-1:10+1][-0.6:0]\
+ "out.data" index 0 with points pointtype 1 color red notitle \
+,"out.data" index 2 with points pointtype 1 color red notitle \
+,"out.data" index 4 with points pointtype 1 color red notitle \
+,"out.data" index 6 with points pointtype 1 color red notitle \
+,"out.data" index 8 with points pointtype 1 color red notitle \
+,-0.5 with lines linetype 2 title "exact"\
+
