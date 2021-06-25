@@ -1,8 +1,10 @@
-#include<stdio.h>
-#include<gsl/gsl_vector.h>
-#include<gsl/gsl_matrix.h>
-#include<math.h>
-#define RND (double)rand()/RAND_MAX
+#include <stdio.h>
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_matrix.h>
+#include <math.h>
+#include <gsl/gsl_blas.h>
+#define RND (double)(rand()%10)
+#define FMT "%7.3f"
 
 void GS_decomp(gsl_matrix* A, gsl_matrix* R){
 	for(int i=0;i<A->size2;i++){
@@ -110,25 +112,17 @@ void GS_inverse(gsl_matrix* Q, gsl_matrix* R, gsl_matrix* B){
 	gsl_vector* e1=gsl_vector_calloc(B->size2);
 	gsl_vector* e2=gsl_vector_calloc(B->size2);
 	gsl_vector* e3=gsl_vector_calloc(B->size2);
-	gsl_vector* e4=gsl_vector_calloc(B->size2);
-	gsl_vector* e5=gsl_vector_calloc(B->size2);
 	gsl_vector* x1=gsl_vector_alloc(B->size2);
 	gsl_vector* x2=gsl_vector_alloc(B->size2);
 	gsl_vector* x3=gsl_vector_alloc(B->size2);
-	gsl_vector* x4=gsl_vector_alloc(B->size2);
-	gsl_vector* x5=gsl_vector_alloc(B->size2);
 
 	gsl_vector_set(e1,0,1);
 	gsl_vector_set(e2,1,1);
 	gsl_vector_set(e3,2,1);
-	gsl_vector_set(e4,3,1);
-	gsl_vector_set(e5,4,1);
 
 	GS_solve(Q, Qt, R, e1, x1);
 	GS_solve(Q, Qt, R, e2, x2);
 	GS_solve(Q, Qt, R, e3, x3);
-	GS_solve(Q, Qt, R, e4, x4);
-	GS_solve(Q, Qt, R, e5, x5);
 
 	for(int i=0;i<B->size1;i++){
 	gsl_matrix_set(B,i,0,gsl_vector_get(x1,i));
@@ -139,29 +133,22 @@ void GS_inverse(gsl_matrix* Q, gsl_matrix* R, gsl_matrix* B){
 	for(int i=0;i<B->size1;i++){
 	gsl_matrix_set(B,i,2,gsl_vector_get(x3,i));
 	}
-	for(int i=0;i<B->size1;i++){
-	gsl_matrix_set(B,i,3,gsl_vector_get(x4,i));
-	}
-	for(int i=0;i<B->size1;i++){
-	gsl_matrix_set(B,i,4,gsl_vector_get(x5,i));
-	}
 
 gsl_matrix_free(Qt);
 gsl_vector_free(e1);
 gsl_vector_free(e2);
 gsl_vector_free(e3);
-gsl_vector_free(e4);
-gsl_vector_free(e5);
 gsl_vector_free(x1);
 gsl_vector_free(x2);
 gsl_vector_free(x3);
-gsl_vector_free(x4);
-gsl_vector_free(x5);
 }
 
-int main(){
-	int n=6;
-	int m=5;
+int main(int argc, char** argv){
+	int n=4;
+	int m=3;
+if(argc>1)n=atoi(argv[1]);
+if(argc>2)m=atoi(argv[2]);
+if(n<7){
 	gsl_matrix* A=gsl_matrix_alloc(n,m);
 	gsl_matrix* Acopy=gsl_matrix_alloc(n,m);
 	gsl_matrix* R=gsl_matrix_calloc(m,m);
@@ -210,6 +197,7 @@ int main(){
 		gsl_vector_set(b,i,bi);
 	}
 	GS_solve(a1,at1,r1,b,x);
+	vector_print("x is found to be:",x);
 	mv_product(acopy1,x,a1x);
 	vector_print("Ax is:",a1x);
 	vector_print("b is:",b);
@@ -246,5 +234,14 @@ gsl_matrix_free(acopy2);
 gsl_matrix_free(B);
 gsl_matrix_free(ab);
 gsl_matrix_free(ba);
-return 0;
+}
+else{
+	printf("n=%i\n",n);
+	gsl_matrix* A=gsl_matrix_alloc(n,n);
+	gsl_matrix* R=gsl_matrix_alloc(n,n);
+	for(int i=0;i<m;i++)for(int j=0;j<m;j++)gsl_matrix_set(A,i,j,RND);
+	GS_decomp(A,R);
+	gsl_matrix_free(A);
+	gsl_matrix_free(R);
+}
 }
