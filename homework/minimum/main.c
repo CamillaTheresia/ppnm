@@ -77,6 +77,7 @@ int main(){
 	gsl_vector_set(H,1,130);
 	gsl_vector_set(H,2,1);
 	double accH=1e-6;
+	fprintf(stderr,"Calculating the mass of the Higgs boson\n");
 	qnewton(chi2,H,accH);
 	fprintf(stderr,"calculated: A=%g, m=%g, gamma=%g\n",gsl_vector_get(H,0),gsl_vector_get(H,1),gsl_vector_get(H,2));
 	fprintf(stderr,"should be: m=125.3\n");

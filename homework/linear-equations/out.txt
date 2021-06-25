@@ -75,7 +75,7 @@ index(3,0) = 0.118678
 index(3,1) = 0.286002
 index(3,2) = 0.833178
 
-x is found to be:
+Solving the equation QRx=b:x is found to be:
 index(0) = 1.61111
 index(1) = 1.03704
 index(2) = -0.444444

@@ -324,6 +324,7 @@ int main(){
 	GS_solve(t,yt,dyt,ct,mt);
 	printf("# index 3: ck's for exponential function\n");
 	printf("Coefficients: a=%g, gamma=%g, gamma_real=0.278\n",exp(gsl_vector_get(ct,0)),-1*gsl_vector_get(ct,1));
+	printf("The calculated value does not correspond with the modern value.\n");
 	printf("\n\n");
 	printf("# index 4: least square\n");
 	for(int i=0;i<nt;i++){
@@ -337,6 +338,7 @@ int main(){
 	printf("\n\n");
 	printf("# index 6: ck's for exponential function with uncertainties\n");
 	printf("Coefficients: a=%g, a_unc=%g, gamma=%g, gamma_unc=%g, gamma_real=0.278\n",exp(gsl_vector_get(ctunc,0)),exp(sqrt(gsl_matrix_get(AtAinv,0,0))),-1*gsl_vector_get(ctunc,1),sqrt(gsl_matrix_get(AtAinv,1,1)));
+	printf("Even with uncertainties, the calculated value does not correspond to the modern value.\n");
 	printf("\n\n");
 	printf("# index 7: least square\n");
 	for(int i=0;i<nt;i++){

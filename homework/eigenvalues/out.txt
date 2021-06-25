@@ -137,6 +137,7 @@ matrix(4,4)=1
 
 
 # index 1: check that the energies are correct
+# eigenfunction, calculated energy, exact energy
 0 9.85121 9.8696
 1 39.1848 39.4784
 2 87.3455 88.8264

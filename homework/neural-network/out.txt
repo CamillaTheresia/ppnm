@@ -1,4 +1,5 @@
-# Function the neural-network should fit to:-1 0.353227 
+# Function the neural-network should fit to:
+-1 0.353227 
 -0.894737 0.309802 
 -0.789474 0.124837 
 -0.684211 -0.179854 
@@ -20,7 +21,8 @@
 1 -0.240462 
 
  
-# The response of the neural-network:-1 0.351473 0.459215 -0.699616
+# The response of the neural-network:
+-1 0.351473 0.459215 -0.699616
 -0.984375 0.354771 0.337766 -0.696345
 -0.96875 0.355008 0.211997 -0.693234
 -0.953125 0.352091 0.082518 -0.690365

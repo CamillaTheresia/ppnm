@@ -43,12 +43,12 @@ int main(){
 	vector_print("Ax is calculated to check that Ax=b:",Ax);
 
 	double det = ch_det(L);
-	printf("The determinant of A is found by det(A)=det(L)*det(L^T)=det(L)^2=\n");
+	printf("The determinant of the matrix A is found by det(A)=det(L)*det(L^T)=det(L)^2=\n");
 	printf("(product of the diagonal elements of L)^2:\n\n");
 	printf("det(A)=%10g\n\n\n",det);
 
 	ch_inv(L,Ainv);
-	matrix_print("The inverse of A is:",Ainv);
+	matrix_print("The inverse matrix of A is:",Ainv);
 	gsl_blas_dgemm(CblasNoTrans,CblasNoTrans,1,A,Ainv,0,AAinv);
 	matrix_print("A*Ainv should be equal to the identity matrix:",AAinv);
 	gsl_blas_dgemm(CblasNoTrans,CblasNoTrans,1,Ainv,A,0,AinvA);

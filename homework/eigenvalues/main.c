@@ -127,6 +127,7 @@ int main(){
 	printf("\n\n");
 
 	printf("# index 1: check that the energies are correct\n");
+	printf("# eigenfunction, calculated energy, exact energy\n");
 	for (int k=0;k<m/3; k++){
 		double exact = M_PI*M_PI*(k+1)*(k+1);
 		double calculated = gsl_matrix_get(H,k,k);

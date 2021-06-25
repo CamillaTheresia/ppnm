@@ -30,7 +30,7 @@ int main(){
 	vx=gsl_vector_alloc(nx);
 	vy=gsl_vector_alloc(nx);
 
-	printf("# Function the neural-network should fit to:");
+	printf("# Function the neural-network should fit to:\n");
 	for(int i=0;i<nx;i++){
 		double x=a+(b-a)*i/(nx-1);
 		double f=function_to_fit(x);
@@ -53,7 +53,7 @@ int main(){
 //	}
 //	printf("\n\n");
 
-	printf("# The response of the neural-network:");
+	printf("# The response of the neural-network:\n");
 	double dz=1.0/64;
 	for(double z=a;z<=b;z+=dz){
 		printf("%g %g %g %g\n",z,ann_response(network,z),ann_derivative(network,z),ann_integral(network,z));

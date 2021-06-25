@@ -66,13 +66,13 @@ Ax is calculated to check that Ax=b:
   0.606969
 
 
-The determinant of A is found by det(A)=det(L)*det(L^T)=det(L)^2=
+The determinant of the matrix A is found by det(A)=det(L)*det(L^T)=det(L)^2=
 (product of the diagonal elements of L)^2:
 
 det(A)=0.00294295
 
 
-The inverse of A is:
+The inverse matrix of A is:
 
          28.783       -18.6408        5.16881       -17.4209
 

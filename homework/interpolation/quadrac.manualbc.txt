@@ -11,3 +11,6 @@ b1:	b2:	b3:
 0	1	4
 0	1	6
 0	1	8
+
+The c's and b's is the same as those calculated
+by my quadratic spline program.

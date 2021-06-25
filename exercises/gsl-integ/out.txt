@@ -1,4 +1,4 @@
-result          = -4.000000000000085265
+Integral of ln(x)/sqrt(x)dx from 0 to 1:result          = -4.000000000000085265
 exact result    = -4.000000000000000000
 estimated error =  0.000000000000135447
 actual error    = -0.000000000000085265

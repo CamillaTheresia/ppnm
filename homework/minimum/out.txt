@@ -10,6 +10,7 @@ qnewton: nsteps=12 ngood=11 nbad=0 fx=3.8e-10
 calculated: x=-3.77931, y=-3.28319
 should be: x=-3.779310, y=-3.283186
 
+Calculating the mass of the Higgs boson
 qnewton: |Dx|<EPS*|x|
 qnewton: nsteps=30 ngood=26 nbad=3 fx=2.7e+01
 calculated: A=9.87671, m=125.972, gamma=2.08643

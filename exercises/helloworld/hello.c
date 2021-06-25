@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <math.h>
 int main(void){
-	printf("hello, world\n");
+	double r=sqrt(2.0);
+	printf("hello, sqrt(2)=%g\n",r);
 return 0;
 }

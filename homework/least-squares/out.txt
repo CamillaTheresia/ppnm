@@ -119,6 +119,7 @@ index(2) = -2.00996e-15
 
 # index 3: ck's for exponential function
 Coefficients: a=142.404, gamma=0.171379, gamma_real=0.278
+The calculated value does not correspond with the modern value.
 
 
 # index 4: least square
@@ -145,6 +146,7 @@ index(1,1) = 1.25e-05
 
 # index 6: ck's for exponential function with uncertainties
 Coefficients: a=142.404, a_unc=1.00236, gamma=0.171379, gamma_unc=0.00353553, gamma_real=0.278
+Even with uncertainties, the calculated value does not correspond to the modern value.
 
 
 # index 7: least square

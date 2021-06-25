@@ -23,7 +23,7 @@ int main(){
 	printf("my min int with while =%i\n",a);
 	printf("my min int with for =%i\n",w);
 	printf("my min int with do while =%i\n",c);
-	printf("value of INT_MAX =%i\n",INT_MIN);
+	printf("value of INT_MIN =%i\n",INT_MIN);
 
 	float x=1; while(1+x!=1) {x/=2;} x*=2;
 	double  x_d=1; while(1+x_d!=1) {x_d/=2;} x_d*=2;

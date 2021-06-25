@@ -197,6 +197,7 @@ if(n<7){
 		gsl_vector_set(b,i,bi);
 	}
 	GS_solve(a1,at1,r1,b,x);
+	printf("Solving the equation QRx=b:");
 	vector_print("x is found to be:",x);
 	mv_product(acopy1,x,a1x);
 	vector_print("Ax is:",a1x);

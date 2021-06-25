@@ -25,6 +25,7 @@ main (void)
   gsl_integration_qags (&F, 0, 1, 0, 1e-7, 1000,
                         w, &result, &error);
 
+  printf("Integral of ln(x)/sqrt(x)dx from 0 to 1:");
   printf ("result          = % .18f\n", result);
   printf ("exact result    = % .18f\n", expected);
   printf ("estimated error = % .18f\n", error);
