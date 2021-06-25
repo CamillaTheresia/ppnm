@@ -4,6 +4,8 @@
 #include"ann.h"
 double activation_function(double x){return x*exp(-x*x);}
 double function_to_fit(double x){return cos(5*x-1)*exp(-x*x);}
+double derivative(double x){return exp(-x*x)-2*x*x*exp(-x*x);}
+double integral(double x){return -0.5*exp(-x*x);}
 
 gsl_vector* vx;
 gsl_vector* vy;
@@ -22,12 +24,13 @@ double cost_function(gsl_vector* p){
 
 int main(){
 	int n=5;
-	network=ann_alloc(n,activation_function);
+	network=ann_alloc(n,activation_function,derivative,integral);
 	double a=-1,b=1;
 	int nx=20;
 	vx=gsl_vector_alloc(nx);
 	vy=gsl_vector_alloc(nx);
 
+	printf("# Function the neural-network should fit to:");
 	for(int i=0;i<nx;i++){
 		double x=a+(b-a)*i/(nx-1);
 		double f=function_to_fit(x);
@@ -50,10 +53,10 @@ int main(){
 //	}
 //	printf("\n\n");
 
+	printf("# The response of the neural-network:");
 	double dz=1.0/64;
 	for(double z=a;z<=b;z+=dz){
-		double y=ann_response(network,z);
-		printf("%g %g \n",z,y);
+		printf("%g %g %g %g\n",z,ann_response(network,z),ann_derivative(network,z),ann_integral(network,z));
 	}
 
 gsl_vector_free(vx);

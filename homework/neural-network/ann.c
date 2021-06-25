@@ -3,10 +3,12 @@
 #include<math.h>
 #include"ann.h"
 
-ann* ann_alloc(int n,double(*f)(double)){
+ann* ann_alloc(int n,double(*f)(double),double(*d)(double),double(*i)(double)){
 	ann* network = malloc(sizeof(ann));
 	network->n=n;
 	network->f=f;
+	network->d=d;
+	network->i=i;
 	network->params=gsl_vector_alloc(3*n);
 	return network;
 }
@@ -22,6 +24,28 @@ double ann_response(ann* network,double x){
 		double b=gsl_vector_get(network->params,3*i+1);
 		double w=gsl_vector_get(network->params,3*i+2);
 		s+=network->f((x-a)/b)*w;
+	}
+	return s;
+}
+
+double ann_derivative(ann* network,double x){
+	double s=0;
+	for(int i=0;i<network->n;i++){
+		double a=gsl_vector_get(network->params,3*i+0);
+		double b=gsl_vector_get(network->params,3*i+1);
+		double w=gsl_vector_get(network->params,3*i+2);
+		s+=network->d((x-a)/b)*w;
+	}
+	return s;
+}
+
+double ann_integral(ann* network,double x){
+	double s=0;
+	for(int i=0;i<network->n;i++){
+		double a=gsl_vector_get(network->params,3*i+0);
+		double b=gsl_vector_get(network->params,3*i+1);
+		double w=gsl_vector_get(network->params,3*i+2);
+		s+=network->i((x-a)/b)*w;
 	}
 	return s;
 }
